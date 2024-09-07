@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 function Sidebar() {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
 
-  return isMenuOpen ? (
+  return !isMenuOpen ? (
     <div className="shadow-lg h-screen w-20 text-[12px] pt-8">
       <ul>
         <li className="flex flex-col items-center  py-3 cursor-pointer hover:bg-gray-200">
