@@ -1,8 +1,49 @@
+import { useSelector } from "react-redux";
+
 function Sidebar() {
-  return (
+  const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
+
+  return isMenuOpen ? (
+    <div className="shadow-lg h-screen w-20 text-[12px] pt-8">
+      <ul>
+        <li className="flex flex-col items-center  py-3 cursor-pointer hover:bg-gray-200">
+          <img
+            className="w-8"
+            src="https://cdn-icons-png.flaticon.com/128/2948/2948025.png"
+            alt="home"
+          />
+          Home
+        </li>
+        <li className="flex flex-col items-center  py-3 cursor-pointer hover:bg-gray-200">
+          <img
+            className="w-8"
+            src="https://cdn-icons-png.flaticon.com/128/15768/15768387.png"
+            alt="shorts"
+          />
+          Shorts
+        </li>
+        <li className="flex flex-col items-center  py-3 cursor-pointer hover:bg-gray-200">
+          <img
+            className="w-8"
+            src="https://cdn-icons-png.flaticon.com/128/2989/2989849.png"
+            alt="subscription"
+          />
+          Subscriptions
+        </li>
+        <li className="flex flex-col items-center py-3 cursor-pointer hover:bg-gray-200">
+          <img
+            className="w-8"
+            src="https://cdn-icons-png.flaticon.com/128/3502/3502477.png"
+            alt="downloads"
+          />
+          Downloads
+        </li>
+      </ul>
+    </div>
+  ) : (
     <div className=" shadow-lg w-56 ">
       <ul className="p-5">
-        <li className="flex gap-3 py-2">
+        <li className="flex gap-3 py-2  hover:bg-gray-200 cursor-pointer">
           <img
             className="w-5"
             src="https://cdn-icons-png.flaticon.com/128/2948/2948025.png"
@@ -10,7 +51,7 @@ function Sidebar() {
           />
           Home
         </li>
-        <li className="flex gap-3 py-2">
+        <li className="flex gap-3 py-2 hover:bg-gray-200 cursor-pointer">
           <img
             className="w-5"
             src="https://cdn-icons-png.flaticon.com/128/15768/15768387.png"
@@ -18,7 +59,7 @@ function Sidebar() {
           />
           Shorts
         </li>
-        <li className="flex gap-3 py-2">
+        <li className="flex gap-3 py-2 hover:bg-gray-200 cursor-pointer">
           <img
             className="w-5"
             src="https://cdn-icons-png.flaticon.com/128/2989/2989849.png"
@@ -30,7 +71,7 @@ function Sidebar() {
       <hr className="bg-black border-1 mt-1 "></hr>
       <h1 className=" px-5 font-bold text-xl pt-3">You</h1>
       <ul className="px-5">
-        <li className="flex gap-3 py-2">
+        <li className="flex gap-3 py-2 hover:bg-gray-200 cursor-pointer">
           <img
             className="w-5"
             src="https://cdn-icons-png.flaticon.com/128/8371/8371328.png"
@@ -38,7 +79,7 @@ function Sidebar() {
           />
           Your Channel
         </li>
-        <li className="flex gap-3 py-2">
+        <li className="flex gap-3 py-2 hover:bg-gray-200 cursor-pointer">
           <img
             className="w-5"
             src="https://cdn-icons-png.flaticon.com/128/3503/3503786.png"
@@ -46,7 +87,7 @@ function Sidebar() {
           />
           History
         </li>
-        <li className="flex gap-3 py-2">
+        <li className="flex gap-3 py-2 hover:bg-gray-200 cursor-pointer">
           <img
             className="w-5"
             src="https://cdn-icons-png.flaticon.com/128/9297/9297069.png"
@@ -54,7 +95,7 @@ function Sidebar() {
           />
           Playlists
         </li>
-        <li className="flex gap-3 py-2">
+        <li className="flex gap-3 py-2 hover:bg-gray-200 cursor-pointer">
           <img
             className="w-5"
             src="https://cdn-icons-png.flaticon.com/128/2991/2991195.png"
@@ -62,7 +103,7 @@ function Sidebar() {
           />
           Your videos
         </li>
-        <li className="flex gap-3 py-2">
+        <li className="flex gap-3 py-2 hover:bg-gray-200 cursor-pointer">
           <img
             className="w-5"
             src="https://cdn-icons-png.flaticon.com/128/15469/15469061.png"
@@ -70,7 +111,7 @@ function Sidebar() {
           />
           Watch Later
         </li>
-        <li className="flex gap-3 py-2">
+        <li className="flex gap-3 py-2 hover:bg-gray-200 cursor-pointer">
           <img
             className="w-5"
             src="https://cdn-icons-png.flaticon.com/128/126/126473.png"
@@ -78,7 +119,7 @@ function Sidebar() {
           />
           Liked videos
         </li>
-        <li className="flex gap-3 py-2">
+        <li className="flex gap-3 py-2 hover:bg-gray-200 cursor-pointer">
           <img
             className="w-5"
             src="https://cdn-icons-png.flaticon.com/128/3502/3502477.png"
@@ -90,7 +131,7 @@ function Sidebar() {
       <hr className="bg-black border-1 mt-1 "></hr>
       <h1 className="px-5 font-bold text-xl pt-3">Subscriptions</h1>
       <ul className="p-5">
-        <li className="flex gap-3 py-2">
+        <li className="flex gap-3 py-2 hover:bg-gray-200 cursor-pointer">
           <img
             className="w-5"
             src="https://cdn-icons-png.flaticon.com/128/4505/4505288.png"
@@ -98,7 +139,7 @@ function Sidebar() {
           />
           Music
         </li>
-        <li className="flex gap-3 py-2">
+        <li className="flex gap-3 py-2 hover:bg-gray-200 cursor-pointer">
           <img
             className="w-5"
             src="https://cdn-icons-png.flaticon.com/128/1152/1152912.png"
@@ -106,7 +147,7 @@ function Sidebar() {
           />
           Sports
         </li>
-        <li className="flex gap-3 py-2">
+        <li className="flex gap-3 py-2 hover:bg-gray-200 cursor-pointer">
           <img
             className="w-5"
             src="https://cdn-icons-png.flaticon.com/128/686/686589.png"
@@ -114,7 +155,7 @@ function Sidebar() {
           />
           Gaming
         </li>
-        <li className="flex gap-3 py-2">
+        <li className="flex gap-3 py-2 hover:bg-gray-200 cursor-pointer">
           <img
             className="w-5"
             src="https://cdn-icons-png.flaticon.com/128/860/860306.png"
@@ -126,7 +167,7 @@ function Sidebar() {
       <hr className="bg-black border-1 mt-1 "></hr>
       <h1 className="px-5 font-bold text-xl pt-3">Explore</h1>
       <ul className="px-5">
-        <li className="flex gap-3 py-2">
+        <li className="flex gap-3 py-2 hover:bg-gray-200 cursor-pointer">
           <img
             className="w-5"
             src="https://cdn-icons-png.flaticon.com/128/1946/1946485.png"
@@ -134,7 +175,7 @@ function Sidebar() {
           />
           Trending
         </li>
-        <li className="flex gap-3 py-2">
+        <li className="flex gap-3 py-2  hover:bg-gray-200 cursor-pointer">
           <img
             className="w-5"
             src="https://cdn-icons-png.flaticon.com/128/263/263056.png"
@@ -142,7 +183,7 @@ function Sidebar() {
           />
           Sports
         </li>
-        <li className="flex gap-3 py-2">
+        <li className="flex gap-3 py-2  hover:bg-gray-200 cursor-pointer">
           <img
             className="w-5"
             src="https://cdn-icons-png.flaticon.com/128/2662/2662503.png"
@@ -150,7 +191,7 @@ function Sidebar() {
           />
           Shopping
         </li>
-        <li className="flex gap-3 py-2">
+        <li className="flex gap-3 py-2  hover:bg-gray-200 cursor-pointer">
           <img
             className="w-5"
             src="https://cdn-icons-png.flaticon.com/128/2537/2537926.png"
@@ -159,7 +200,7 @@ function Sidebar() {
           News
         </li>
 
-        <li className="flex gap-3 py-2">
+        <li className="flex gap-3 py-2  hover:bg-gray-200 cursor-pointer">
           <img
             className="w-5"
             src="https://cdn-icons-png.flaticon.com/128/2989/2989838.png"
