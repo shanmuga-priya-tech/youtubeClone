@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
@@ -7,12 +8,14 @@ function Sidebar() {
     <div className="shadow-lg h-screen w-28 text-[12px] pt-8">
       <ul>
         <li className="flex flex-col items-center  py-3 cursor-pointer hover:bg-gray-200">
-          <img
-            className="w-8"
-            src="https://cdn-icons-png.flaticon.com/128/2948/2948025.png"
-            alt="home"
-          />
-          Home
+          <Link to="/">
+            <img
+              className="w-8"
+              src="https://cdn-icons-png.flaticon.com/128/2948/2948025.png"
+              alt="home"
+            />
+            Home
+          </Link>
         </li>
         <li className="flex flex-col items-center  py-3 cursor-pointer hover:bg-gray-200">
           <img
@@ -43,13 +46,18 @@ function Sidebar() {
   ) : (
     <div className=" shadow-lg w-56 ">
       <ul className="p-5">
-        <li className="flex gap-3 py-2  hover:bg-gray-200 cursor-pointer">
-          <img
-            className="w-5"
-            src="https://cdn-icons-png.flaticon.com/128/2948/2948025.png"
-            alt="home"
-          />
-          Home
+        <li>
+          <Link
+            to="/"
+            className="flex gap-3 py-2  hover:bg-gray-200 cursor-pointer"
+          >
+            <img
+              className="w-5"
+              src="https://cdn-icons-png.flaticon.com/128/2948/2948025.png"
+              alt="home"
+            />
+            Home
+          </Link>
         </li>
         <li className="flex gap-3 py-2 hover:bg-gray-200 cursor-pointer">
           <img
