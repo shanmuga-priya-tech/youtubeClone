@@ -3,7 +3,7 @@ import VideoConatiner from "./VideoConatiner";
 
 function MainContainer() {
   return (
-    <div className="">
+    <div>
       <FilterBtns />
       <VideoConatiner />
     </div>
