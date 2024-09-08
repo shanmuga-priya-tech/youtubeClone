@@ -48,5 +48,13 @@
 - CACHE STRUCTURE:
   {
   searchQuery:[suggestion list]
-        "apple":["apple iphone","apple tree","apple garden","apple juice","apple fruit"]
-      }
+  "apple":["apple iphone","apple tree","apple garden","apple juice","apple fruit"]
+  }
+
+# N-Level Nested Comments:(array of obj with array of obj nested inside it)
+
+- using recursion:
+  - CommentContainer
+  - CommentList
+  - Comment
+  - CommentList(used the same component recursively)
