@@ -39,3 +39,14 @@
   =>User presses a key → debounce timer starts (200ms countdown begins).
   =>If the user presses another key before 200ms, the timer resets and starts a new 200ms countdown.
   =>If the user stops typing and no further keys are pressed for 200ms, then the function executes (e.g., an API call).
+
+# CACHING:
+
+- caching is done to optimize the search result thus reducing the api call.
+  eg: if india is already searched we store it in slice and we get the suggestion list for that search from the slice rather making an api call once again.
+
+- CACHE STRUCTURE:
+  {
+  searchQuery:[suggestion list]
+        "apple":["apple iphone","apple tree","apple garden","apple juice","apple fruit"]
+      }

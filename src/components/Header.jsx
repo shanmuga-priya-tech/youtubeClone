@@ -1,32 +1,49 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import { useEffect, useState } from "react";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
+import { addToCache } from "../utils/searchSlice";
 
 function Header() {
   const [searchText, setSearchText] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestion, setShowSuggestion] = useState(false);
 
+  const dispatch = useDispatch();
+  //retreving result from if cache if already in cache
+  const searchCache = useSelector((store) => store.search);
+
   //making an api call to search suggestion API
   useEffect(() => {
     const getSearchSuggestion = async () => {
       const res = await fetch(`${YOUTUBE_SEARCH_API}${searchText}`);
       const data = await res.json();
-      console.log(data[1]);
       setSuggestions(data[1]);
+      //console.log(data[1]);
+
+      //update cache
+      dispatch(
+        addToCache({
+          [searchText]: data[1],
+        })
+      );
     };
     //setting the debouncing delay time
-    const timer = setTimeout(() => getSearchSuggestion(), 200);
+    const timer = setTimeout(() => {
+      if (searchCache[searchText]) {
+        setShowSuggestion(searchCache[searchText]);
+      } else {
+        getSearchSuggestion();
+      }
+    }, 200);
 
     //clearing the timer for each key press inorder to start fresh timer on every re-render
     return () => {
       clearTimeout(timer);
     };
-  }, [searchText]);
+  }, [searchText, dispatch, searchCache]);
 
   //fn to toggle sidebar
-  const dispatch = useDispatch();
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
   };
