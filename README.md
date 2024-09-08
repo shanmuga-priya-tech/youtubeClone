@@ -28,3 +28,14 @@
 - create a .env file and placed a youtube api and restart the application.
 
 - building video Conatiner using the youtube api
+
+- search functionality(debouncing)
+
+# debouncing:
+
+- Debouncing is a technique in programming that helps improve the performance of web applications by controlling the frequency at which time-consuming tasks are triggered.
+- Debouncing can be used in search input fields to delay sending search queries to the server until the user has finished typing, reducing the number of unnecessary API requests.
+  eg:debouncing with 200ms
+  =>User presses a key → debounce timer starts (200ms countdown begins).
+  =>If the user presses another key before 200ms, the timer resets and starts a new 200ms countdown.
+  =>If the user stops typing and no further keys are pressed for 200ms, then the function executes (e.g., an API call).

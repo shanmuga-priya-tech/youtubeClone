@@ -1,11 +1,36 @@
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
+import { useEffect, useState } from "react";
+import { YOUTUBE_SEARCH_API } from "../utils/constants";
 
 function Header() {
+  const [searchText, setSearchText] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+  const [showSuggestion, setShowSuggestion] = useState(false);
+
+  //making an api call to search suggestion API
+  useEffect(() => {
+    const getSearchSuggestion = async () => {
+      const res = await fetch(`${YOUTUBE_SEARCH_API}${searchText}`);
+      const data = await res.json();
+      console.log(data[1]);
+      setSuggestions(data[1]);
+    };
+    //setting the debouncing delay time
+    const timer = setTimeout(() => getSearchSuggestion(), 200);
+
+    //clearing the timer for each key press inorder to start fresh timer on every re-render
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [searchText]);
+
+  //fn to toggle sidebar
   const dispatch = useDispatch();
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
   };
+
   return (
     <div className="grid grid-flow-col p-2  shadow-lg ">
       <div className=" flex gap-1 items-center col-span-1">
@@ -21,19 +46,45 @@ function Header() {
           alt="youtube-logo"
         />
       </div>
-      <div className="flex items-center col-span-10 ml-60">
-        <input
-          className="border p-2 px-3 w-[550px] rounded-l-3xl border-gray-400"
-          type="text"
-          placeholder="Search"
-        />
-        <button className="border py-2.5  px-3 rounded-r-3xl border-gray-400 bg-gray-200">
-          <img
-            className="w-5 h-5" // Keep the size fixed, without padding
-            src="https://cdn-icons-png.flaticon.com/128/54/54481.png"
-            alt="search-icon"
+      <div>
+        <div className="flex items-center col-span-10 ml-60">
+          <input
+            className="border p-2 px-3 w-[550px] rounded-l-3xl border-gray-400"
+            type="text"
+            placeholder="Search"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            onFocus={() => setShowSuggestion(true)}
+            onBlur={() => setShowSuggestion(false)}
           />
-        </button>
+
+          <button className="border py-2.5  px-3 rounded-r-3xl border-gray-400 bg-gray-200">
+            <img
+              className="w-5 h-5" // Keep the size fixed, without padding
+              src="https://cdn-icons-png.flaticon.com/128/54/54481.png"
+              alt="search-icon"
+            />
+          </button>
+        </div>
+        {showSuggestion && (
+          <div className="absolute bg-white py-2 px-5 ml-60 w-[550px] rounded-lg shadow-lg border border-gray-100 ">
+            <ul>
+              {suggestions.map((suggestion) => (
+                <li
+                  key={suggestion}
+                  className="flex items-center gap-5 py-2 hover:bg-gray-100 "
+                >
+                  <img
+                    className="w-4 h-4" // Keep the size fixed, without padding
+                    src="https://cdn-icons-png.flaticon.com/128/54/54481.png"
+                    alt="search-icon"
+                  />
+                  {suggestion}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
 
       <div className="flex gap-6 items-center col-span-1">
