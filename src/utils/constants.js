@@ -2,3 +2,5 @@ export const YOUTUBE_VIDEO_LINK = `https://youtube.googleapis.com/youtube/v3/vid
 
 export const YOUTUBE_SEARCH_API =
   "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+
+export const CHAT_COUNT = 20;
