@@ -58,3 +58,8 @@
   - CommentList
   - Comment
   - CommentList(used the same component recursively)
+
+# Live Chat:(API polling)
+
+- we use api polling because order doesn't matter.
+- we keep certain amount of previous msgs in cache and delete the remaining previous msgs inorder to avoid page load and also to display some of the previous msgs when we scroll up.

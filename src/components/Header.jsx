@@ -104,7 +104,7 @@ function Header() {
         )}
       </div>
 
-      <div className="flex gap-6 items-center col-span-1">
+      <div className="flex gap-6 items-center  col-start-13">
         <img
           className="w-6 "
           src="https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/video-512.png"
