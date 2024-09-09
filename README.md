@@ -61,5 +61,7 @@
 
 # Live Chat:(API polling)
 
-- we use api polling because order doesn't matter.
-- we keep certain amount of previous msgs in cache and delete the remaining previous msgs inorder to avoid page load and also to display some of the previous msgs when we scroll up.
+- used api polling because order doesn't matter.
+- keep certain amount of previous msgs in cache and delete the remaining previous msgs inorder to avoid page load and also to display some of the previous msgs when we scroll up.
+- generated dummy data for live section
+- used splice method to delete the top most msg once the msg count reaches the specified number.
