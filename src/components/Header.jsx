@@ -57,11 +57,13 @@ function Header() {
           alt="menu"
           onClick={toggleMenuHandler}
         />
-        <img
-          className="w-24 "
-          src="https://cdn.mos.cms.futurecdn.net/8gzcr6RpGStvZFA2qRt4v6-1200-80.jpg.webp "
-          alt="youtube-logo"
-        />
+        <Link to="/">
+          <img
+            className="w-24 "
+            src="https://cdn.mos.cms.futurecdn.net/8gzcr6RpGStvZFA2qRt4v6-1200-80.jpg.webp "
+            alt="youtube-logo"
+          />
+        </Link>
       </div>
       <div>
         <div className="flex items-center col-span-10 ml-60">
