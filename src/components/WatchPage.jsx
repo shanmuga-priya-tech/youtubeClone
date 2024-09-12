@@ -4,10 +4,12 @@ import { closeMenu } from "../utils/appSlice";
 import { useSearchParams } from "react-router-dom";
 import CommentsContainer from "./CommentsContainer";
 import LiveChat from "./LiveChat";
+import Channelnfo from "./Channelnfo";
 
 function WatchPage() {
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
+  const videoId = searchParams.get("v");
 
   useEffect(() => {
     dispatch(closeMenu());
@@ -20,13 +22,15 @@ function WatchPage() {
             className="rounded-lg mt-2"
             width="1000"
             height="550"
-            src={`https://www.youtube.com/embed/${searchParams.get("v")}`}
+            src={`https://www.youtube.com/embed/${videoId}`}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
           ></iframe>
+          <Channelnfo videoId={videoId} />
         </div>
+
         <div className="w-full">
           <LiveChat />
         </div>

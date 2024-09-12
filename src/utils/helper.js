@@ -191,3 +191,13 @@ export function generateRandomStrings(length) {
   }
   return result;
 }
+
+// Utility function to convert large numbers to a more readable format
+export const formatCount = (num) => {
+  if (num >= 1000000) {
+    return (num / 1000000).toFixed(1) + "M"; // e.g., 1.5M
+  } else if (num >= 1000) {
+    return (num / 1000).toFixed(1) + "K"; // e.g., 701K
+  }
+  return num; // If less than 1,000, return as is
+};

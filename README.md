@@ -29,6 +29,10 @@
 
 - building video Conatiner using the youtube api
 
+- building the channel info component from the data retrieved from youtube api by video id and channel id.
+
+- implemented logic for subscribing,liking and dislikeing video
+
 - search functionality(debouncing)
 
 # debouncing:
@@ -65,3 +69,4 @@
 - keep certain amount of previous msgs in cache and delete the remaining previous msgs inorder to avoid page load and also to display some of the previous msgs when we scroll up.
 - generated dummy data for live section
 - used splice method to delete the top most msg once the msg count reaches the specified number.
+- created input box to add msg and dispatched an action .
