@@ -9,7 +9,7 @@ function VideoConatiner() {
     const fetchVideo = async () => {
       const res = await fetch(YOUTUBE_VIDEO_LINK);
       const data = await res.json();
-      //console.log(data);
+
       setVideos(data.items);
     };
     fetchVideo();

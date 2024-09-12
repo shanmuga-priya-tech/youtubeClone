@@ -15,7 +15,7 @@ export const YOUTUBE_SEARCH_QUERY_LIST =
   "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=16&q=";
 
 export const YOUTUBE_PLAYLIST =
-  "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=12&playlistId=";
+  "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=16&playlistId=";
 
 export const FILL_LIKE_IMG =
   "https://img.icons8.com/?size=24&id=83166&format=png";

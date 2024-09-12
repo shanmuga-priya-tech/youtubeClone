@@ -20,7 +20,6 @@ function Header() {
       const res = await fetch(`${YOUTUBE_SEARCH_API}${searchText}`);
       const data = await res.json();
       setSuggestions(data[1]);
-      //console.log(data[1]);
 
       //update cache
       dispatch(

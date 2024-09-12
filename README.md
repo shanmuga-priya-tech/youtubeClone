@@ -19,7 +19,9 @@
 - creation of header,sidebar,filter button component
 
 - installed redux-toolkit and react-redux for creating store
+
 - created a store and appSlice
+
 - implemented toggle functionality to toggle side bar
 
 # Getting youtube API key
@@ -35,7 +37,13 @@
 
 - created a custom hook to fetch channel info inorder to make it reusable.
 
-- search functionality(debouncing)
+- search functionality(debouncing).
+
+- displayed the search suggestion list based on search query.
+
+- displayed the search result based on search suggestion selected.
+
+- created different routes to handle videos and playlist.
 
 # debouncing:
 
@@ -77,3 +85,4 @@
 
 - onBlur with search suggestion(soln:delayed it manually).
 - changed the router to include header component to make search functional.
+- make the videocard component reusable for both videos and playlist
