@@ -1,5 +1,10 @@
+import useChannelInfo from "../hooks/useChannelInfo";
+import { formatCount } from "../utils/helper";
+
 function VideoCard({ info }) {
-  //console.log(info);
+  const { channelInfo } = useChannelInfo(info?.snippet?.channelId);
+
+  const profile = channelInfo?.snippet?.thumbnails?.default?.url;
   const { snippet, statistics } = info;
   const { channelTitle, title, thumbnails } = snippet;
   return (
@@ -7,8 +12,21 @@ function VideoCard({ info }) {
       <img className="rounded-lg" src={thumbnails.medium.url} alt="thumbnail" />
       <ul>
         <li className="font-bold py-2">{title}</li>
-        <li className="text-gray-500">{channelTitle}</li>
-        <li className="text-gray-500">{statistics.viewCount}views</li>
+        <div className="flex gap-3">
+          <div>
+            <img
+              className="w-12 h-12 rounded-full"
+              src={profile}
+              alt="channel-img"
+            />
+          </div>
+          <div>
+            <li className="text-gray-500">{channelTitle}</li>
+            <li className="text-gray-500">
+              {formatCount(statistics.viewCount)} views
+            </li>
+          </div>
+        </div>
       </ul>
     </div>
   );

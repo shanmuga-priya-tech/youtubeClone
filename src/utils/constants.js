@@ -20,3 +20,5 @@ export const FILL_DISLIKE_IMG =
   "https://img.icons8.com/?size=32&id=2CXfjId0nLMx&format=png";
 export const OUTLINE_DISLIKE_IMG =
   "https://img.icons8.com/?size=32&id=15957&format=png";
+
+export const MAX_DESCRIPTION_LENGTH = 200;
