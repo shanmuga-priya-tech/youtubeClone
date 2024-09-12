@@ -3,6 +3,7 @@ import { toggleMenu } from "../utils/appSlice";
 import { useEffect, useState } from "react";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import { addToCache } from "../utils/searchSlice";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [searchText, setSearchText] = useState("");
@@ -72,7 +73,11 @@ function Header() {
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             onFocus={() => setShowSuggestion(true)}
-            onBlur={() => setShowSuggestion(false)}
+            onBlur={() => {
+              setTimeout(() => {
+                setShowSuggestion(false);
+              }, 200); // Delay hiding
+            }}
           />
 
           <button className="border py-2.5  px-3 rounded-r-3xl border-gray-400 bg-gray-200">
@@ -87,17 +92,19 @@ function Header() {
           <div className="absolute bg-white py-2 px-5 ml-60 w-[550px] rounded-lg shadow-lg border border-gray-100 ">
             <ul>
               {suggestions.map((suggestion) => (
-                <li
+                <Link
+                  to={`results?search_query=${suggestion}`}
                   key={suggestion}
-                  className="flex items-center gap-5 py-2 hover:bg-gray-100 "
                 >
-                  <img
-                    className="w-4 h-4" // Keep the size fixed, without padding
-                    src="https://cdn-icons-png.flaticon.com/128/54/54481.png"
-                    alt="search-icon"
-                  />
-                  {suggestion}
-                </li>
+                  <li className="flex items-center gap-5 py-2 hover:bg-gray-100 ">
+                    <img
+                      className="w-4 h-4" // Keep the size fixed, without padding
+                      src="https://cdn-icons-png.flaticon.com/128/54/54481.png"
+                      alt="search-icon"
+                    />
+                    {suggestion}
+                  </li>
+                </Link>
               ))}
             </ul>
           </div>

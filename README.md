@@ -31,7 +31,9 @@
 
 - building the channel info component from the data retrieved from youtube api by video id and channel id.
 
-- implemented logic for subscribing,liking and dislikeing video
+- implemented logic for subscribing,liking and dislikeing video.
+
+- created a custom hook to fetch channel info inorder to make it reusable.
 
 - search functionality(debouncing)
 
@@ -70,3 +72,8 @@
 - generated dummy data for live section
 - used splice method to delete the top most msg once the msg count reaches the specified number.
 - created input box to add msg and dispatched an action .
+
+# challenges faced:
+
+- onBlur with search suggestion(soln:delayed it manually).
+- changed the router to include header component to make search functional.

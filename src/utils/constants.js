@@ -11,6 +11,9 @@ export const YOUTUBE_GET_VIDEO_INFO_BY_ID =
 export const YOUTUBE_GET_CHANNEL_INFO_BY_ID =
   "https://www.googleapis.com/youtube/v3/channels?part=snippet";
 
+export const YOUTUBE_SEARCH_QUERY_LIST =
+  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=";
+
 export const FILL_LIKE_IMG =
   "https://img.icons8.com/?size=24&id=83166&format=png";
 export const OUTLINE_LIKE_IMG =
