@@ -15,9 +15,11 @@ function VideoConatiner() {
     fetchVideo();
   }, []);
 
+  if (!videos) return null;
+
   return (
     <div className="flex flex-wrap gap-2">
-      {videos.map((video) => (
+      {videos?.map((video) => (
         <Link to={`/watch?v=${video.id}`} key={video.id}>
           <VideoCard info={video} />
         </Link>
