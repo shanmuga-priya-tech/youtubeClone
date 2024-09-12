@@ -22,9 +22,11 @@ function VideoCard({ info }) {
           </div>
           <div>
             <li className="text-gray-500">{channelTitle}</li>
-            <li className="text-gray-500">
-              {formatCount(statistics.viewCount)} views
-            </li>
+            {statistics && (
+              <li className="text-gray-500">
+                {formatCount(statistics.viewCount)} views
+              </li>
+            )}
           </div>
         </div>
       </ul>

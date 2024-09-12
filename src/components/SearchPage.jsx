@@ -1,9 +1,11 @@
-import { useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { YOUTUBE_SEARCH_QUERY_LIST } from "../utils/constants";
+import VideoCard from "./VideoCard";
 
 function SearchPage() {
   const [searchParams] = useSearchParams();
+  const [searchResults, setSearchResults] = useState(null);
 
   useEffect(() => {
     const fetchSearchQuery = async () => {
@@ -14,11 +16,29 @@ function SearchPage() {
         }`
       );
       const data = await res.json();
-      console.log(data);
+      console.log(data.items);
+      setSearchResults(data.items);
     };
     fetchSearchQuery();
   }, [searchParams]);
-  return <div>search</div>;
+
+  if (!searchResults) return null;
+
+  return (
+    <div className="flex  flex-wrap">
+      {searchResults?.map((listItems) => (
+        <Link
+          to={
+            listItems.id.videoId
+              ? `/watch?v=${listItems.id.videoId}`
+              : `/playlist?list=${listItems.id.playlistId}`
+          }
+        >
+          <VideoCard key={listItems.title} info={listItems} />
+        </Link>
+      ))}
+    </div>
+  );
 }
 
 export default SearchPage;
