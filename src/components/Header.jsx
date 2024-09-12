@@ -1,7 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import { useEffect, useState } from "react";
-import { YOUTUBE_SEARCH_API } from "../utils/constants";
+import {
+  LOGO,
+  MENU,
+  NOTIFICATION,
+  SEARCH,
+  USER_ICON,
+  VIDEO_PLAYER,
+  YOUTUBE_SEARCH_API,
+} from "../utils/constants";
 import { addToCache } from "../utils/searchSlice";
 import { Link } from "react-router-dom";
 
@@ -53,16 +61,12 @@ function Header() {
       <div className=" flex gap-1 items-center col-span-1">
         <img
           className="w-8 cursor-pointer"
-          src="https://cdn-icons-png.flaticon.com/128/9663/9663120.png "
+          src={MENU}
           alt="menu"
           onClick={toggleMenuHandler}
         />
         <Link to="/">
-          <img
-            className="w-24 "
-            src="https://cdn.mos.cms.futurecdn.net/8gzcr6RpGStvZFA2qRt4v6-1200-80.jpg.webp "
-            alt="youtube-logo"
-          />
+          <img className="w-24 " src={LOGO} alt="youtube-logo" />
         </Link>
       </div>
       <div>
@@ -82,11 +86,7 @@ function Header() {
           />
 
           <button className="border py-2.5  px-3 rounded-r-3xl border-gray-400 bg-gray-200">
-            <img
-              className="w-5 h-5" // Keep the size fixed, without padding
-              src="https://cdn-icons-png.flaticon.com/128/54/54481.png"
-              alt="search-icon"
-            />
+            <img className="w-5 h-5" src={SEARCH} alt="search-icon" />
           </button>
         </div>
         {showSuggestion && (
@@ -98,11 +98,7 @@ function Header() {
                   key={suggestion}
                 >
                   <li className="flex items-center gap-5 py-2 hover:bg-gray-100 ">
-                    <img
-                      className="w-4 h-4" // Keep the size fixed, without padding
-                      src="https://cdn-icons-png.flaticon.com/128/54/54481.png"
-                      alt="search-icon"
-                    />
+                    <img className="w-4 h-4" src={SEARCH} alt="search-icon" />
                     {suggestion}
                   </li>
                 </Link>
@@ -113,21 +109,9 @@ function Header() {
       </div>
 
       <div className="flex gap-6 items-center  col-start-13">
-        <img
-          className="w-6 "
-          src="https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/video-512.png"
-          alt="video-player"
-        />
-        <img
-          className="w-6 "
-          src="https://cdn-icons-png.flaticon.com/128/2529/2529521.png"
-          alt="notification"
-        />
-        <img
-          className="w-6 "
-          src="https://cdn-icons-png.flaticon.com/128/64/64572.png"
-          alt="user-icon"
-        />
+        <img className="w-6 " src={VIDEO_PLAYER} alt="video-player" />
+        <img className="w-6 " src={NOTIFICATION} alt="notification" />
+        <img className="w-6 " src={USER_ICON} alt="user-icon" />
       </div>
     </div>
   );

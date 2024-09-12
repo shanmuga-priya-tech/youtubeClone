@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import {
+  DOWNLOAD_ICON,
   FILL_DISLIKE_IMG,
   FILL_LIKE_IMG,
   MAX_DESCRIPTION_LENGTH,
   OUTLINE_DISLIKE_IMG,
   OUTLINE_LIKE_IMG,
+  SHARE_ICON,
   YOUTUBE_GET_VIDEO_INFO_BY_ID,
 } from "../utils/constants";
 import { formatCount, timeAgo } from "../utils/helper";
@@ -131,19 +133,11 @@ function Channelnfo({ videoId }) {
             />
           </div>
           <div className="flex items-center gap-1 px-5 py-2 bg-gray-200 rounded-3xl cursor-pointer">
-            <img
-              className="w-7 h-7 "
-              src="https://img.icons8.com/?size=50&id=11504&format=png"
-              alt="share"
-            />
+            <img className="w-7 h-7 " src={SHARE_ICON} alt="share" />
             <p>Share</p>
           </div>
           <div className="flex items-center gap-1 px-5 py-2 bg-gray-200 rounded-3xl cursor-pointer">
-            <img
-              className="w-7 h-7"
-              src="https://img.icons8.com/?size=32&id=14100&format=png"
-              alt="download"
-            />
+            <img className="w-7 h-7" src={DOWNLOAD_ICON} alt="download" />
             <p>Download</p>
           </div>
         </div>
